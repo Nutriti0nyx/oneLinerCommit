@@ -10,7 +10,7 @@ exec('rm -f .git/index.lock', (error, stdout, stderr) => {
   }
   console.log(`Stdout: ${stdout}`);
 
-  exec('git add .', (error, stdout, stderr) => {
+  exec('git add . -- ":!oneLinerCommit.js"', (error, stdout, stderr) => {
       if (error) {
     console.error(`Erreur : ${error.message}`);
     return;
