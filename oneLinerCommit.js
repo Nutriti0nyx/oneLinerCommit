@@ -11,12 +11,8 @@ exec('rm -f .git/index.lock', (error, stdout, stderr) => {
   console.log(`Stdout: ${stdout}`);
 
   exec('git add .', (error, stdout, stderr) => {
-  console.log(`Stdout: ${stdout}`);
   exec('git commit -m "commit"', (error, stdout, stderr) => {
-  console.log(`Stdout: ${stdout}`);
-
   exec('git push -u origin main', (error, stdout, stderr) => {
-  console.log(`Stdout: ${stdout}`);
 });
 });
 });
