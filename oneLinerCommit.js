@@ -1,6 +1,6 @@
 const { exec } = require("child_process");
-
-exec('rm -f .git/index.lock', (error, stdout, stderr) => {
+async function main() {
+await exec('rm -f .git/index.lock', (error, stdout, stderr) => {
       if (error) {
     console.error(`Erreur : ${error.message}`);
     return;
@@ -11,7 +11,7 @@ exec('rm -f .git/index.lock', (error, stdout, stderr) => {
   console.log(`Stdout: ${stdout}`);
 });
 
-exec('git add .', (error, stdout, stderr) => {
+await exec('git add .', (error, stdout, stderr) => {
       if (error) {
     console.error(`Erreur : ${error.message}`);
     return;
@@ -22,7 +22,7 @@ exec('git add .', (error, stdout, stderr) => {
   console.log(`Stdout: ${stdout}`);
 });
 
-exec('git commit -m "commit"', (error, stdout, stderr) => {
+await exec('git commit -m "commit"', (error, stdout, stderr) => {
       if (error) {
     console.error(`Erreur : ${error.message}`);
     return;
@@ -33,7 +33,7 @@ exec('git commit -m "commit"', (error, stdout, stderr) => {
   console.log(`Stdout: ${stdout}`);
 });
 
-exec('git push -u origin main', (error, stdout, stderr) => {
+await exec('git push -u origin main', (error, stdout, stderr) => {
       if (error) {
     console.error(`Erreur : ${error.message}`);
     return;
@@ -43,3 +43,6 @@ exec('git push -u origin main', (error, stdout, stderr) => {
   }
   console.log(`Stdout: ${stdout}`);
 });
+}
+
+main();
